@@ -28,28 +28,19 @@ Console.Write("Введите номер задачи: ");
 int task = Convert.ToInt32(Console.ReadLine());
 switch (task){
     case 34:
-        Console.Clear();
-        Console.Write("Введите размер массива: ");
-        int len = Convert.ToInt32(Console.ReadLine());
-        int[] myArray = FillArray34(len);
+        int[] myArray = BeginTask();
         int count = CheckEvenNumbers(myArray);
         Console.Write("В массиве: ");
         PrintArray(myArray);
         Console.WriteLine($"четных чисел - {count}");
         break;
     case 36:
-        Console.Clear();
-        Console.Write("Введите размер массива: ");
-        int num36 = Convert.ToInt32(Console.ReadLine());
-        int[] array36 = FillArray(num36);
+        int[] array36 = BeginTask();
         PrintArray(array36);
         Console.WriteLine($"Сумма чисел на нечетных позициях равна - {Task36(array36)}");
         break;
     case 38:
-        Console.Clear();
-        Console.Write("Введите размер массива: ");
-        int num38 = Convert.ToInt32(Console.ReadLine());
-        int[] array38 = FillArray(num38);
+        int[] array38 = BeginTask();
         PrintArray(array38);
         Console.WriteLine($"разница между максимальным и минимальным числами в массиве равна - {Task38(array38)}");
         break;
@@ -86,6 +77,13 @@ int[] FillArray(int size){
 void PrintArray(int[] someArray){
 
     Console.WriteLine(String.Join(", ", someArray));
+}
+int[] BeginTask(){
+    Console.Clear();
+    Console.Write("Введите размер массива: ");
+    int size = Convert.ToInt32(Console.ReadLine());
+    int[] someArray = FillArray(size);
+    return someArray;
 }
 int CheckEvenNumbers(int[] someArray){
     int result =0;
